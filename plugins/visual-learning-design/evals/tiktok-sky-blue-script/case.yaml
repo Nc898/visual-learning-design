@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: tiktok-sky-blue-script
+expected_outcome: |
+  A short-form script (script.md) of about 45 seconds that opens with the learning question as the hook, pairs each narration line with the visual shown at that moment, keeps on-screen text to short key phrases, works with the sound off, avoids background music or irrelevant gags under narration, and ends with a recap and a viewer prompt.

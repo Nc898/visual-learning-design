@@ -1,0 +1,12 @@
+{
+  "name": "visual-learning-design",
+  "version": "1.0.0",
+  "description": "Design and review teaching material with Mayer's cognitive theory of multimedia learning: slide decks, explainer and short-form video, web apps, demos, carousels and other social posts. Includes a draft checker for slide outlines, carousels and video scripts.",
+  "author": {
+    "name": "Nc898"
+  },
+  "homepage": "https://github.com/Nc898/visual-learning-design",
+  "repository": "https://github.com/Nc898/visual-learning-design",
+  "license": "MIT",
+  "keywords": ["education", "instructional-design", "multimedia-learning", "mayer", "slides", "video", "tiktok", "carousel", "e-learning"]
+}

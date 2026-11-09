@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: live-vaccine-slideshow
+expected_outcome: |
+  A presented-deck outline (slides.md) with sentence headlines, visual-first slides with minimal on-screen text, the explanation in speaker notes, an early labeled slide of key parts, builds or visuals synced to the narration, and at least one prediction or retrieval prompt for students.

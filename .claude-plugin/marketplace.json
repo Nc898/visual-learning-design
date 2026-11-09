@@ -1,0 +1,16 @@
+{
+  "name": "nc898-plugins",
+  "owner": {
+    "name": "Nc898"
+  },
+  "metadata": {
+    "description": "Claude Code plugins by Nc898, starting with research-based design for teaching material"
+  },
+  "plugins": [
+    {
+      "name": "visual-learning-design",
+      "source": "./plugins/visual-learning-design",
+      "description": "Design and review teaching material with Mayer's multimedia learning principles: slides, videos, web apps, demos, social posts and short-form video."
+    }
+  ]
+}

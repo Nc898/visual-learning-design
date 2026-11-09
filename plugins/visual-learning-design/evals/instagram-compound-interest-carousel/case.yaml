@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: instagram-compound-interest-carousel
+expected_outcome: |
+  A carousel plan (carousel.md) of roughly 5-10 slides teaching one idea: a cover slide stating the question or payoff, one step per slide with short text placed on a reused visual, a recap slide, a retrieval or apply prompt, a caption, and alt text per slide.
