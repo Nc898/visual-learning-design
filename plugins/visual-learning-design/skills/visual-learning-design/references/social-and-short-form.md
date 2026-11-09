@@ -20,6 +20,8 @@ Likes and views are **not** learning measures. In a study of 34 educational TikT
 
 ### Structure (15–60 seconds for one idea; series for more)
 
+**Spoken-word budget: about 2.5 words per second** (150 wpm): roughly 40 words for 15 s, 75 for 30 s, 110 for 45 s, and 150 for 60 s. Every beat below has to fit inside that total, so the mechanism usually gets 50–60% of it. Count with `scripts/check_draft.py --seconds N` before you hand the script over. Models consistently undercount their own scripts. In testing, scripts reported as "about 115 words" actually ran 133–157. When you're over budget, cut words, not beats: trim the side note first, then shorten the setup lines.
+
 1. **Hook (0–2s): the learning question or a misconception**, spoken *and* on screen ("Why does ice float when almost every other solid sinks?"). A hook that *is* the question to be answered draws attention to the right content. Hooks unrelated to the lesson (shock clips, "wait for it", trending gags) are seductive details. They buy a second of attention and cost understanding.
 2. **Name the parts (2–6s), only what's needed:** label the one or two key elements on screen as they're introduced (pre-training, compressed).
 3. **One mechanism, shown while it's said (most of the runtime):** the visual changes on the word that names the change (temporal contiguity). Show the thing itself, a quick diagram, or a hand sketch, rather than only a face talking.

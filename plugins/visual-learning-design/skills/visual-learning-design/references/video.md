@@ -27,6 +27,7 @@ How to write and check the script:
 - **Aim for about 6 minutes or less per video.** In MOOC data from 6.9 million sessions, median engagement was close to 100% for videos under 6 minutes and fell sharply for longer ones (Guo, Kim & Rubin, 2014; summarized in Brame, 2016). Split long lessons into a series.
 - Inside a video, add **chapter markers** at the boundaries between ideas, and **pause points** with a question about every 3–5 minutes. Questions inserted into lecture video reduce mind-wandering and improve test scores (Szpunar et al., 2013).
 - Open each video with a single sentence of purpose: "By the end you'll be able to…".
+- **Fit the narration to the runtime.** A clear explanatory pace is about 150 words per minute, or 2.5 words per second, plus short pauses. That means about 75 words for 30 s, 110 for 45 s, 150 for 60 s, and 450 for 3 minutes. Write to that budget, then count the words with `scripts/check_draft.py --seconds N`. Don't estimate by eye: drafts that "feel" like 45 seconds usually run 50–65.
 
 ## Make words and visuals arrive together
 

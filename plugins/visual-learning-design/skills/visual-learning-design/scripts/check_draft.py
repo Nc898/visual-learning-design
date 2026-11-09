@@ -336,6 +336,25 @@ def check_units(units: list[Unit], md: str, rep: Report, budget: int, carousel: 
 # ------------------------------------------------------------ video checks --
 
 
+TARGET_RE = re.compile(r"(\d{1,3})\s*(?:-|\s)?\s*(sec(?:ond)?s?|s|min(?:ute)?s?)\b", re.I)
+
+
+def infer_target_seconds(md: str) -> int | None:
+    """Read a target length such as '~45 sec' or '2-minute' from the title area."""
+    head = []
+    for line in md.splitlines()[:12]:
+        if line.lstrip().startswith("|"):
+            break
+        head.append(line)
+    title = [ln for ln in head if ln.startswith("#")]
+    for text in (title + head):
+        m = TARGET_RE.search(text)
+        if m:
+            n = int(m.group(1))
+            return n * 60 if m.group(2).lower().startswith("min") else n
+    return None
+
+
 def check_video(md: str, rep: Report, wpm: int, seconds: int | None):
     found = find_script_table(md)
     if not found:
@@ -351,11 +370,25 @@ def check_video(md: str, rep: Report, wpm: int, seconds: int | None):
     total_words = sum(len(words(x)) for x in narration)
     est = total_words / wpm * 60
     detail = f"{total_words} spoken words, about {est:.0f} s at {wpm} wpm"
+    source = "--seconds"
+    if not seconds:
+        seconds, source = infer_target_seconds(md), "read from the draft's title"
     if seconds:
-        lvl = "PASS" if abs(est - seconds) <= seconds * 0.25 else "WARN"
-        rep.add(lvl, "runtime", f"{detail} (target {seconds} s)")
+        budget = round(seconds * wpm / 60)
+        over = total_words - budget
+        target = f"target {seconds} s ({source}) = about {budget} words"
+        if abs(over) <= budget * 0.10:
+            rep.add("PASS", "runtime", f"{detail}; {target}")
+        elif over > budget * 0.30:
+            rep.add("FAIL", "runtime", f"{detail}; {target}. Cut about {over} words: trim side notes "
+                    "and setup lines before the mechanism.")
+        elif over > 0:
+            rep.add("WARN", "runtime", f"{detail}; {target}. Cut about {over} words.")
+        else:
+            rep.add("WARN", "runtime", f"{detail}; {target}. About {-over} words short. Check that "
+                    "nothing essential is missing, or shorten the target.")
     else:
-        rep.add("INFO", "runtime", detail)
+        rep.add("INFO", "runtime", f"{detail} (pass --seconds N to check it against a target length)")
 
     if vis_i is None:
         rep.add("WARN", "visual per line", "no visual column; pair every narration line with what is on screen")

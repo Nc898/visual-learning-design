@@ -93,8 +93,10 @@ Read the file for the medium you are making. When a piece spans several media (a
 For Markdown slide outlines, carousels, and scripts, first run the draft checker. It's `scripts/check_draft.py` in this skill's base directory and needs only the Python standard library:
 
 ```bash
-python <skill-dir>/scripts/check_draft.py draft.md            # add --seconds 45 for a target video length
+python <skill-dir>/scripts/check_draft.py draft.md --seconds 45   # --seconds: the brief's target length
 ```
+
+For a video with a target length, pass `--seconds`. Without it, the checker reads a length like "~45 sec" from the title.
 
 It counts what can be counted: on-screen words per slide (headline included), headline length, alt text, speaker notes, narration runtime, on-screen text that repeats the narration, the hook, the closing viewer prompt, and music under the narration. Fix every FAIL. Fix every WARN too, unless a boundary condition justifies it. Your own word counts drift, so trust the script's.
 
